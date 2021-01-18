@@ -17,6 +17,8 @@ jobs:
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
+        env:
+          EP_PRE_RELEASE: true
         with:
           build_script_name: "compile"
 
