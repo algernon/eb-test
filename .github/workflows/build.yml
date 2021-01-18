@@ -16,7 +16,8 @@ jobs:
           node-version: 12
 
       - name: Test
-        run: echo ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          echo foobar: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
