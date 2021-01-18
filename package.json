@@ -8,6 +8,13 @@
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
+  "build": {
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
   "dependencies": {
     "source-map-support": "^0.5.16"
   },
