@@ -32,7 +32,7 @@ Snapshot of the current development build.
 
 Sources may be out of date, but the assets are current.
 EOF
-    gh release create -p -F "${TMP}" -t "eb-test ${VERSION}" v${VERSION}
+    gh release create -p -F "${TMP}" -t "Chrysalis ${VERSION}" v${VERSION}
 }
 
 push_changes() {
