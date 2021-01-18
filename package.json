@@ -9,6 +9,10 @@
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "build": {
+    "publish": {
+      "provider": "github",
+      "releaseType": "prerelease"
+    },
     "linux": {
       "target": [
         "AppImage"
