@@ -32,7 +32,7 @@ jobs:
 
       - name: Release snapshot
         uses: samuelmeuli/action-electron-builder@v1
-        if: github.ref == 'refs/heads/main' && github.event.
+        if: github.ref == 'refs/heads/main'
         env:
           EP_PRE_RELEASE: true
         with:
