@@ -1,6 +1,6 @@
 name: Build/release
 
-on: [push, release]
+on: push
 
 jobs:
   release:
@@ -14,11 +14,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-
-      - name: Test
-        run: |
-          echo foobar: ${{ github.ref == 'refs/heads/master' }}
-          echo baz: type=${{ github.event_name }}
 
       - name: Build Electron app
         uses: samuelmeuli/action-electron-builder@v1
@@ -43,7 +38,7 @@ jobs:
 
       - name: Release tag
         uses: samuelmeuli/action-electron-builder@v1
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') && !endsWith(github.ref, '-snapshot')
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
