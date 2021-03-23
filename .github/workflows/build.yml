@@ -21,4 +21,4 @@ jobs:
       - name: Create stuff
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-        run: gh release create -p -t "eb-test snapshot" -n "" snapshot
+        run: gh release create -p -t "eb-test snapshot" -n "Development build" snapshot
