@@ -13,7 +13,7 @@ jobs:
       - name: Delete stuff
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-        run: hub release delete snapshot
+        run: hub release delete snapshot || true
 
       - name: Create stuff
         env:
