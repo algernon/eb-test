@@ -3,8 +3,15 @@ name: Build/release
 on: push
 
 jobs:
+  prepare:
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: touch foo
+      - run: ls -la
+
   release:
+    needs: prepare
     runs-on: [ubuntu-latest]
 
     steps:
-      - run: hub help
+      - run: ls -la
