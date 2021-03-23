@@ -10,6 +10,9 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
+      - name: test
+        run: gh --help || true
+
       - name: Delete stuff
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
@@ -18,4 +21,4 @@ jobs:
       - name: Create stuff
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-        run: hub release create -p -t "eb-test snapshot" snapshot
+        run: hub release create -p -m "" snapshot
