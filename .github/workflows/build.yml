@@ -16,7 +16,9 @@ jobs:
       - name: Delete stuff
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-        run: gh release delete -y snapshot || true
+        run:
+          - gh release delete -y snapshot || true
+          - git push origin -f :snapshot
 
       - name: Create stuff
         env:
