@@ -3,14 +3,7 @@ name: Build/release
 on: push
 
 jobs:
-  prepare:
-    runs-on: [ubuntu-latest]
-    steps:
-      - run: touch foo
-      - run: ls -la
-
   release:
-    needs: prepare
     runs-on: [ubuntu-latest]
 
     steps:
@@ -20,7 +13,7 @@ jobs:
       - name: Delete stuff
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-        run: hub release delete -y snapshot
+        run: hub release delete snapshot
 
       - name: Create stuff
         env:
