@@ -14,4 +14,15 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
-      - run: ls -la
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Delete stuff
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        run: hub release delete -y snapshot
+
+      - name: Create stuff
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        run: hub release create -p -t "eb-test snapshot" snapshot
